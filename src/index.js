@@ -28,17 +28,16 @@ export default (babel) => {
             'Set `babel-plugin-add-header` options pass in an Array of files to read/execute through the `header` variable or pass in `files` which define `header`\n'
           );
         }
-        
-        // traverse through header array and generate the comment content
-        if (opts.header) {
-          insertHeader(t, path, opts, opts.header);
-        } else {
-          const header = getOptsHeader(state.file.opts.filename, opts);
 
-          if (header) {
-            insertHeader(t, path, opts, header);
-          }
-        }
+        // traverse through header array and generate the comment content         
+            const header = getOptsHeader(state.file.opts.filename, opts);
+
+            if (header) {
+              insertHeader(t, path, opts, header);
+            }
+            else if(opts.header) {
+              insertHeader(t, path, opts, opts.header);
+            }
       },
     },
   };

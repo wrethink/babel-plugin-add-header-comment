@@ -3,6 +3,6 @@ node_modules
 *.log
 .DS_Store
 bundle.js
-lib/
+# lib/
 test/toReadRand.txt
 test/outManyFile.js
